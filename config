@@ -49,7 +49,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
+exec --no-startup-id'/usr/bin/pulseaudio --start'
 
 bindsym XF86AudioRaiseVolume exec pamixer -u -i 5
 bindsym XF86AudioLowerVolume exec pamixer -u -d 5
@@ -277,6 +277,7 @@ mode "resize" {
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 
 # Lock screen
@@ -296,9 +297,9 @@ exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id xautolock -time 5 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id terminal
 exec --no-startup-id thunderbird
 exec --no-startup-id signal-desktop
+exec --no-startup-id spotify
 exec --no-startup-id protonmail-bridge
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
 
@@ -337,7 +338,7 @@ set_from_resource $term_color15    color15
 
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+#bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -405,4 +406,5 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 
