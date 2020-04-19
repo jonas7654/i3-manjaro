@@ -200,6 +200,7 @@ assign [class="Signal"] $ws8
 assign [class="discord"] $ws8
 assign [class="ProtonMail Bridge"] $ws8
 assign [class="whatsapp-nativefier-d52542"] $ws8
+assign [class="zoom"] $ws8
 for_window [class="Spotify"] move to workspace $ws10
 
 
