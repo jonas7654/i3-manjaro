@@ -306,6 +306,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id thunderbird
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
+exec --no-startup-id nautilus
 exec --no-startup-id protonmail-bridge
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
 
