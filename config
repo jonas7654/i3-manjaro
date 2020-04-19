@@ -55,6 +55,11 @@ bindsym XF86AudioRaiseVolume exec pamixer -u -i 5
 bindsym XF86AudioLowerVolume exec pamixer -u -d 5
 bindsym XF86AudioMute exec pamixer -t
 
+# Media player controls
+bindsym XF86AudioPlay exec playerctl -p spotify play-pause
+bindsym XF86AudioNext exec playerctl -p spotify next
+bindsym XF86AudioPrev exec playerctl -p spotify previous
+
 ################################################################################################
 
 # Screen brightness controls
@@ -342,7 +347,7 @@ set_from_resource $term_color15    color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3  #ff670a 
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -406,5 +411,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 
 
