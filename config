@@ -227,7 +227,6 @@ for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
@@ -300,14 +299,14 @@ exec --no-startup-id xfce4-power-manager
 # exec_always --no-startup-id sbxkb
 #exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 5 -locker blurlock
+#exec --no-startup-id xautolock -time 5 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id thunderbird
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
 exec --no-startup-id nautilus
-exec --no-startup-id protonmail-bridge
+exec --no-startup-id protonmail-bridge --no-window
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
 
 
