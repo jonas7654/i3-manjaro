@@ -1,7 +1,8 @@
 # Manjaro-i3
 
 # i3-config
-https://github.com/Jvanrhijn/polybar-spotify #dependency: pip3 install dbus-python
+https://github.com/Jvanrhijn/polybar-spotify dependency: pip3 install dbus-python
+jq for weather widget
 
 
 
@@ -12,4 +13,4 @@ Packages:
 
 Fonts to install (copy the .ttf files to ~/.fonts):
 
-    Awesome (https://github.com/FortAwesome/Font-Awesome), for the special cute icons
+    Awesome (https://github.com/FortAwesome/Font-Awesome)
