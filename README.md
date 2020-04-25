@@ -9,7 +9,8 @@ jq for weather widget
 
 Packages:
 
-    jq for weather widget
+    jq 
+    pamixer 
 
 Fonts to install (copy the .ttf files to ~/.fonts):
 
