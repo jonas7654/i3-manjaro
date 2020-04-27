@@ -3,8 +3,11 @@
 
 # xrandr setup
 
-exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+#1080p Display
+#exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
+# 2560x1440 @ 144Hz
+exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -73,7 +76,7 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b --config
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -290,7 +293,8 @@ bindsym $mod+x exec --no-startup-id blurlock
 
 # Autostart applications
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config /home/jonas/.config/picom/config.conf
+exec --no-startup-id nitrogen --restore; sleep 1
+exec --no-startup-id picom -b --config /home/jonas/.config/picom/config.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id pamac-tray
@@ -308,7 +312,7 @@ exec --no-startup-id spotify
 exec --no-startup-id nautilus
 exec --no-startup-id protonmail-bridge --no-window
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
-
+exec --no-startup-id redshift -l geoclue2
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -351,10 +355,11 @@ set_from_resource $term_color15    color15
   client.focused          #556064 #556064 #80FFF9 #FDF6E3  #ff670a 
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #2B2C2B  
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
   client.background       #2B2C2B
+
 
 #############################
 ### settings for i3-gaps: ###
