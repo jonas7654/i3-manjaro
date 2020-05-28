@@ -11,6 +11,7 @@ exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $mod2 Mod1
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -33,15 +34,19 @@ font xft:URWGothic-Book 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
-
+floating_modifier $mod2
+floating_modifier 
 # start a terminal
 bindsym $mod+Return exec terminal
+bindsym $mod2+Return exec terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod2+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run 
+bindsym $mod2+d exec --no-startup-id rofi -show run
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -76,13 +81,15 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b --config
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b --config /home/jonas/.config/picom/config.conf
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+bindsym $mod2+Ctrl+b exec terminal -e 'bmenu'
 
 
 focus_follows_mouse no
@@ -93,11 +100,22 @@ bindsym $mod+l focus down
 bindsym $mod+o focus up
 bindsym $mod+odiaeresis focus right
 
+bindsym $mod2+k focus left
+bindsym $mod2+l focus down
+bindsym $mod2+o focus up
+bindsym $mod2+odiaeresis focus right
+
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+bindsym $mod2+Left focus left
+bindsym $mod2+Down focus down
+bindsym $mod2+Up focus up
+bindsym $mod2+Right focus right
 
 # move focused window
 bindsym $mod+Shift+k move left
@@ -105,32 +123,55 @@ bindsym $mod+Shift+l move down
 bindsym $mod+Shift+o move up
 bindsym $mod+Shift+odiaeresis move right
 
+bindsym $mod2+Shift+k move left
+bindsym $mod2+Shift+l move down
+bindsym $mod2+Shift+o move up
+bindsym $mod2+Shift+odiaeresis move right
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod2+Shift+Left move left
+bindsym $mod2+Shift+Down move down
+bindsym $mod2+Shift+Up move up
+bindsym $mod2+Shift+Right move right
+
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth noV
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+bindsym $mod2+b workspace back_and_forth
+bindsym $mod2+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
+bindsym $mod2+h split h;exec notify-send 'tile horizontally'
+bindsym $mod2+v split v;exec notify-send 'tile vertically'
+bindsym $mod2+q split toggle
+
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod2+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+bindsym $mod2+s layout stacking
+bindsym $mod2+w layout tabbed
+bindsym $mod2+e layout toggle split
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod2+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -179,6 +220,18 @@ bindsym $mod+8 workspace $ws8; layout tabbed
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+bindsym $mod2+1 workspace $ws1
+bindsym $mod2+2 workspace $ws2; exec [ $(ps h -C firefox | grep -v "autohide" | wc -l) = 0 ] && /usr/bin/firefox
+bindsym $mod2+3 workspace $ws3
+bindsym $mod2+4 workspace $ws4
+bindsym $mod2+5 workspace $ws5
+bindsym $mod2+6 workspace $ws6
+bindsym $mod2+7 workspace $ws7
+bindsym $mod2+8 workspace $ws8; layout tabbed
+bindsym $mod2+9 workspace $ws9
+bindsym $mod2+0 workspace $ws10
+
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -191,6 +244,16 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to worksapce $ws10
 
+bindsym $mod2+Shift+1 move container to workspace $ws1
+bindsym $mod2+Shift+2 move container to workspace $ws2
+bindsym $mod2+Shift+3 move container to workspace $ws3
+bindsym $mod2+Shift+4 move container to workspace $ws4
+bindsym $mod2+Shift+5 move container to workspace $ws5
+bindsym $mod2+Shift+6 move container to workspace $ws6
+bindsym $mod2+Shift+7 move container to workspace $ws7
+bindsym $mod2+Shift+8 move container to workspace $ws8
+bindsym $mod2+Shift+9 move container to workspace $ws9
+bindsym $mod2+Shift+0 move container to worksapce $ws10
 
 # Open applications on specific workspaces
 assign [class="Pcmanfm"] $ws3
@@ -240,12 +303,16 @@ for_window [class=".*"] border pixel 3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+bindsym $mod2+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+bindsym $mod2+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod2+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 
 # Set shut down, restart and locking features
 #bindsym $mod+m mode "$mode_system"
@@ -288,13 +355,37 @@ mode "resize" {
 	bindsym $mod+r mode "default"
 }
 
+bindsym $mod2+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym k resize shrink width 5 px or 5 ppt
+        bindsym l resize grow height  5 px or 5 ppt
+        bindsym o resize shrink height 5 px or 5 ppt
+        bindsym odiaeresis resize grow width 5 px or 5 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
 # Lock screen
 bindsym $mod+x exec --no-startup-id blurlock
+bindsym $mod2+x exec --no-startup-id blurlock
 
 # Autostart applications
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1
-exec --no-startup-id picom -b --config /home/jonas/.config/picom/config.conf
+exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id pamac-tray
