@@ -4,10 +4,10 @@
 # xrandr setup
 
 #1080p Display
-#exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
 # 2560x1440 @ 144Hz
-exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
+#exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -376,6 +376,7 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
+	bindsym $mod2+r mode "default"
 }
 
 # Lock screen
