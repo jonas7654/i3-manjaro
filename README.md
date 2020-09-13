@@ -11,6 +11,7 @@ Packages:
 
     jq 
     pamixer 
+    imwheel
 
 Fonts to install (copy the .ttf files to ~/.fonts):
 
