@@ -4,10 +4,10 @@
 # xrandr setup
 
 #1080p Display
-exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+#exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
 # 2560x1440 @ 144Hz
-#exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
+exec xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 --output eDP --off
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -391,10 +391,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id pamac-tray
 #exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
+exec --no-startup-id blueman-applet
+#exec_always --no-startup-id sbxkb
 #exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
+#exec --no-startup-id start_conky_green
 #exec --no-startup-id xautolock -time 5 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -405,6 +405,7 @@ exec --no-startup-id nautilus
 exec --no-startup-id protonmail-bridge --no-window
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
 exec --no-startup-id redshift -l geoclue2
+exec --no-startup-id imwheel;exec --no-startup-id imwheel -k
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -511,5 +512,7 @@ mode "$mode_gaps_outer" {
 }
 
 
+exec xinput set-prop 13 294 0 #ZOWIE EC2
 
-exec xinput --set-prop 13 "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop 18 294 1 #Trackpad
+
