@@ -6,6 +6,7 @@
 #1080p Display
 #exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
+bindsym $mod+p exec xrandr --rate 120
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -198,7 +199,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to worksapce $ws10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 # Open applications on specific workspaces
@@ -454,7 +455,7 @@ mode "$mode_gaps_outer" {
 }
 
 
-exec xinput set-prop 13 294 0 #ZOWIE EC2
+exec xinput set-prop 10 294 0 #ZOWIE EC2
 
-xinput set-prop 21 294 1  #Trackpad
+exec xinput set-prop 21 294 1  #Trackpad
 
