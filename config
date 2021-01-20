@@ -6,7 +6,7 @@
 #1080p Display
 #exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
-bindsym $mod+p exec xrandr --rate 120
+bindsym $mod+p exec xrandr --rate 144
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -213,7 +213,6 @@ assign [class="Signal"] $ws8
 assign [class="discord"] $ws8
 assign [class="ProtonMail Bridge"] $ws8
 assign [class="whatsapp-nativefier-d52542"] $ws8
-assign [class="zoom"] $ws8
 assign [class="slack"] $ws8
 for_window [class="Spotify"] move to workspace $ws10
 
@@ -348,7 +347,6 @@ exec --no-startup-id protonmail-bridge --no-window
 exec_always --no-startup-id /home/jonas/.config/polybar/./launch.sh
 exec --no-startup-id redshift -l geoclue2
 exec --no-startup-id imwheel;exec --no-startup-id imwheel -k
-exec --no-startup-id slack
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -457,5 +455,7 @@ mode "$mode_gaps_outer" {
 
 exec xinput set-prop 10 294 0 #ZOWIE EC2
 
-exec xinput set-prop 21 294 1  #Trackpad
+exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop "SynPS/2 Synaptics TouchPad" 322 0
+
 
